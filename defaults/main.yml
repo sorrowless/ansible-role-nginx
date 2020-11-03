@@ -12,10 +12,11 @@ nginx_keep_only_specified: "{{ keep_only_specified | default(False) }}"
 # Whether load vars/{{ ansible_os_family }}.yml or not
 nginx_load_default_vars: true
 
+nginx_install: true
 nginx_installation_type: "packages"
 nginx_binary_name: "nginx"
 nginx_service_name: "{{nginx_binary_name}}"
-nginx_conf_dir: /etc/nginx # For this variable, a specific value for the OS can be apply in vars/{{ ansible_os_family }}.yml
+nginx_conf_dir: /etc/nginx  # For this variable, a specific value for the OS can be apply in vars/{{ ansible_os_family }}.yml
 nginx_default_site_template: "site.conf.j2"
 
 nginx_user: nginx  # For this variable, a specific value for the OS can be apply in vars/{{ ansible_os_family }}.
@@ -57,7 +58,7 @@ nginx_disabled_sites: []
 nginx_module_configs: []
 nginx_remove_modules: []
 nginx_disabled_modules: []
-nginx_modules_location: /usr/lib64/nginx/modules # For this variable, a specific value for the OS can be applied in vars/{{ ansible_os_family }}.
+nginx_modules_location: /usr/lib64/nginx/modules  # For this variable, a specific value for the OS can be applied in vars/{{ ansible_os_family }}.
 
 nginx_configs: {}
 nginx_snippets: {}
@@ -75,8 +76,8 @@ nginx_start_service: true
 nginx_start_at_boot: true
 
 nginx_set_real_ip_from_cloudflare: False
-nginx_cloudflare_real_ip_header: "CF-Connecting-IP" # See: https://support.cloudflare.com/hc/en-us/articles/200170706-How-do-I-restore-original-visitor-IP-with-Nginx-
-nginx_cloudflare_configuration_name: "cloudflare" # Name for the conf file in the conf.d directory
+nginx_cloudflare_real_ip_header: "CF-Connecting-IP"  # See: https://support.cloudflare.com/hc/en-us/articles/200170706-How-do-I-restore-original-visitor-IP-with-Nginx-
+nginx_cloudflare_configuration_name: "cloudflare"  # Name for the conf file in the conf.d directory
 
 nginx_amplify: false
 nginx_amplify_api_key: ""

@@ -17,7 +17,7 @@
   tags: [packages, nginx]
 
 - include_tasks: installation.packages.yml
-  when: nginx_installation_type == "packages"
+  when: nginx_installation_type == "packages" and nginx_install
   tags: [packages, nginx]
 
 - import_tasks: ensure-dirs.yml

@@ -1,9 +1,11 @@
 ---
 galaxy_info:
-  author: "DAUPHANT Julien"
+  author: Stan Bogatkin
   description: Ansible role to install Nginx.
+  company: Personal project
   license: BSD
   min_ansible_version: 2.4
+  role_name: nginx
   platforms:
     - name: EL
       versions:
@@ -31,5 +33,6 @@ galaxy_info:
     - name: SmartOS
   galaxy_tags:
     - web
+    - nginx
 allow_duplicates: yes
 dependencies: []

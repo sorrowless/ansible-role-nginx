@@ -1,0 +1,34 @@
+---
+- name: Converge
+  hosts: all
+  become: true
+
+  vars:
+    nginx_sites:
+      "host_http":
+        - listen 80
+        - server_name _
+        - gzip on
+        - gzip_types *
+        - charset utf-8
+        - client_max_body_size 32M
+        - keepalive_timeout 5
+
+  pre_tasks:
+    - name: Update apt cache.
+      apt: update_cache=true cache_valid_time=600
+      changed_when: false
+      when: ansible_os_family == 'Debian'
+
+    - name: Install curl package
+      package:
+        name: curl
+        state: present
+
+  roles:
+    - role: nginx
+
+  post_tasks:
+    - name: Verify nginx is running.
+      command: "curl localhost"
+      changed_when: false

@@ -15,6 +15,23 @@
     - "snippets"
     - "modules-available"
     - "modules-enabled"
+  when: ansible_connection != 'local'
+
+- name: Create the directories for site specific configurations locally
+  file:
+    path: "{{ nginx_conf_dir }}/{{ item }}"
+    state: directory
+    mode: "{{ nginx_dir_perm }}"
+  with_items:
+    - "sites-available"
+    - "sites-enabled"
+    - "auth_basic"
+    - "conf.d"
+    - "conf.d/stream"
+    - "snippets"
+    - "modules-available"
+    - "modules-enabled"
+  when: ansible_connection == 'local'
 
 - name: Ensure log directory exist
   file:
@@ -23,3 +40,4 @@
     owner: "{{ nginx_log_user }}"
     group: "{{ nginx_log_group }}"
     mode: "{{ nginx_log_perm }}"
+  when: ansible_connection != 'local'

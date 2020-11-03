@@ -1,33 +1,29 @@
-nginx
-=====
+# sbog/nginx
 
-## @jdauphant : I don't have time to manage anymore this role. Don't hesitate to fork and made your own version.
-
+[![Build Status](https://travis-ci.com/sorrowless/ansible_nginx.svg?branch=master)](https://travis-ci.com/sorrowless/ansible_nginx)
+[![Ansible Role](https://img.shields.io/ansible/role/42562)](https://galaxy.ansible.com/sorrowless/nginx)
+[![Ansible Quality Score](https://img.shields.io/ansible/quality/42562)](https://galaxy.ansible.com/sorrowless/nginx)
+[![Ansible Role](https://img.shields.io/ansible/role/d/42562)](https://galaxy.ansible.com/sorrowless/nginx)
+[![GitHub](https://img.shields.io/github/license/sorrowless/ansible_nginx)](https://github.com/sorrowless/ansible_nginx/blob/master/LICENSE)
 
 This role installs and configures the nginx web server. The user can specify
 any http configuration parameters they wish to apply their site. Any number of
 sites can be added with configurations of your choice.
 
-[![Build Status](https://travis-ci.org/jdauphant/ansible-role-nginx.svg?branch=master)](https://travis-ci.org/jdauphant/ansible-role-nginx)
-[![Ansible Galaxy](https://img.shields.io/ansible/role/466.svg)](https://galaxy.ansible.com/jdauphant/nginx/)
-
-Requirements
-------------
+## Requirements
 
 This role requires Ansible 2.4 or higher and platform requirements are listed
 in the metadata file. (Some older version of the role support Ansible 1.4)
 For FreeBSD a working pkgng setup is required (see: https://www.freebsd.org/doc/handbook/pkgng-intro.html )
 Installation of Nginx Amplify agent is only supported on CentOS, RedHat, Amazon, Debian and Ubuntu distributions.
 
-Install
--------
+## Install
 
 ```sh
-ansible-galaxy install jdauphant.nginx
+ansible-galaxy install sorrowless.nginx
 ```
 
-Role Variables
---------------
+## Role Variables
 
 The variables that can be passed to this role and a brief description about
 them are as follows. (For all variables, take a look at [defaults/main.yml](defaults/main.yml))
@@ -141,8 +137,7 @@ nginx_module_configs:
   - mod-http-geoip
 ```
 
-Examples
-========
+# Examples
 
 ## 1) Install nginx with HTTP directives of choice, but with no sites configured and no additional configuration:
 
@@ -198,7 +193,7 @@ for details.
       - client_max_body_size 200M
 # retain defaults and add additional `client_max_body_size` param
   roles:
-    - role: jdauphant.nginx
+    - role: sorrowless.nginx
       nginx_http_params: "{{ nginx_http_default_params + my_extra_params }}"
 ```
 
@@ -313,12 +308,12 @@ Additional configurations are created in /etc/nginx/conf.d/
                proxy_set_header Host $myhost;
              }
 ```
-## 8) Example to use this role with my ssl-certs role to generate or copy ssl certificate ( https://galaxy.ansible.com/jdauphant/ssl-certs )
+## 8) Example to use this role with my ssl-certs role to generate or copy ssl certificate ( https://galaxy.ansible.com/sorrowless/ssl-certs )
 ```yaml
  - hosts: all
    roles:
      - jdauphant.ssl-certs
-     - role: jdauphant.nginx
+     - role: sorrowless.nginx
        nginx_configs:
           ssl:
                - ssl_certificate_key {{ssl_certs_privkey_path}}
@@ -395,17 +390,16 @@ and it is up to you to provide a template with valid content and formatting for 
            - location /images/ { try_files $uri $uri/ /index.html; }
 ```
 
-Dependencies
-------------
+## Dependencies
 
 None
 
-License
--------
+## License
+
 BSD
 
-Author Information
-------------------
+## Author Information
 
 - Original : Benno Joy
 - Modified by : DAUPHANT Julien
+- Reworked by : [Stan Bogatkin](https://sbog.ru)
