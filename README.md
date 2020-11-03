@@ -1,9 +1,9 @@
 # sbog/nginx
 
 [![Build Status](https://travis-ci.com/sorrowless/ansible_nginx.svg?branch=master)](https://travis-ci.com/sorrowless/ansible_nginx)
-[![Ansible Role](https://img.shields.io/ansible/role/42562)](https://galaxy.ansible.com/sorrowless/nginx)
-[![Ansible Quality Score](https://img.shields.io/ansible/quality/42562)](https://galaxy.ansible.com/sorrowless/nginx)
-[![Ansible Role](https://img.shields.io/ansible/role/d/42562)](https://galaxy.ansible.com/sorrowless/nginx)
+[![Ansible Role](https://img.shields.io/ansible/role/51617)](https://galaxy.ansible.com/sorrowless/nginx)
+[![Ansible Quality Score](https://img.shields.io/ansible/quality/51617)](https://galaxy.ansible.com/sorrowless/nginx)
+[![Ansible Role](https://img.shields.io/ansible/role/d/51617)](https://galaxy.ansible.com/sorrowless/nginx)
 [![GitHub](https://img.shields.io/github/license/sorrowless/ansible_nginx)](https://github.com/sorrowless/ansible_nginx/blob/master/LICENSE)
 
 This role installs and configures the nginx web server. The user can specify
