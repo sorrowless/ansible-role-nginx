@@ -14,6 +14,7 @@
   tags: [configuration, nginx]
 
 - name: Create independent configuration for CloudFlare
+  become: yes
   template:
     src: config_cloudflare.conf.j2
     dest: "{{ nginx_conf_dir }}/conf.d/{{ nginx_cloudflare_configuration_name }}.conf"

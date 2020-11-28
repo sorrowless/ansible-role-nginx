@@ -1,5 +1,6 @@
 ---
 - name: Disable the default site
+  become: yes
   file:
     path: "{{ nginx_conf_dir }}/sites-enabled/default"
     state: absent
@@ -7,6 +8,7 @@
     - reload nginx
 
 - name: Disable the default site (on newer nginx versions)
+  become: yes
   file:
     path: "{{ nginx_conf_dir }}/sites-enabled/default.conf"
     state: absent
@@ -16,6 +18,7 @@
      'default' not in nginx_sites.keys()
 
 - name: Remove the default configuration
+  become: yes
   file:
     path: "{{ nginx_conf_dir }}/conf.d/default.conf"
     state: absent

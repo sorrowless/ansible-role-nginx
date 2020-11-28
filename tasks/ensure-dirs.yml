@@ -1,5 +1,6 @@
 ---
 - name: Create the directories for site specific configurations
+  become: yes
   file:
     path: "{{ nginx_conf_dir }}/{{ item }}"
     state: directory
@@ -18,6 +19,7 @@
   when: ansible_connection != 'local'
 
 - name: Create the directories for site specific configurations locally
+  become: yes
   file:
     path: "{{ nginx_conf_dir }}/{{ item }}"
     state: directory
@@ -34,6 +36,7 @@
   when: ansible_connection == 'local'
 
 - name: Ensure log directory exist
+  become: yes
   file:
     path: "{{ nginx_log_dir }}"
     state: directory
